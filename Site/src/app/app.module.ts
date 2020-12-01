@@ -9,6 +9,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RestaurantslistComponent } from './pages/restaurantslist/restaurantslist.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginComponent } from './pages/login/login.component';
     BasiccontentComponent,
     RegisterComponent,
     OrdersComponent,
-    LoginComponent
+    LoginComponent,
+    RestaurantslistComponent
   ],
   imports: [
     BrowserModule,

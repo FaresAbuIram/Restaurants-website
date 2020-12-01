@@ -1,0 +1,63 @@
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Restaurants</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li class="active">Restaurants</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">Restaurants</strong>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of restaurants">
+                        <th scope="row">{{ctr}}</th>
+                        <td>{{r.image}}</td>
+                        <td>{{r.name}}</td>
+                        <td>{{r.city}}</td>
+                        <td>{{r.rating}}/5</td>
+                        <td>
+                            <button type="button" class="btn btn-warning"><i class="fa fa-map-marker"></i>&nbsp; Menus</button>
+                            <button type="button" class="btn btn-info">Edit</button>
+                            <button type="button" class="btn btn-danger"><i class="fa fa-rss"></i>&nbsp; Delete</button>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary"><i class="fa fa-star"></i>&nbsp; Primary</button>
+<button type="button" class="btn btn-secondary"><i class="fa fa-lightbulb-o"></i>&nbsp; Secondary</button>
+<button type="button" class="btn btn-success"><i class="fa fa-magic"></i>&nbsp; Success</button>
+
+
+<button type="button" class="btn btn-link"><i class="fa fa-link"></i>&nbsp; Link</button>
