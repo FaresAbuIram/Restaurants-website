@@ -8,6 +8,8 @@ import { BasiccontentComponent } from './pages/basiccontent/basiccontent.compone
 import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { MenuComponent } from './pages/menus/menu/menu.component';
+import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { OrdersComponent } from './pages/orders/orders.component';
     DashboardComponent,
     BasiccontentComponent,
     RegisterComponent,
-    OrdersComponent
+    OrdersComponent,
+    MenuComponent,
+    AddEditMenuComponent
   ],
   imports: [
     BrowserModule,
