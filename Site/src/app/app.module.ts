@@ -8,6 +8,7 @@ import { BasiccontentComponent } from './pages/basiccontent/basiccontent.compone
 import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { OrdersComponent } from './pages/orders/orders.component';
     DashboardComponent,
     BasiccontentComponent,
     RegisterComponent,
-    OrdersComponent
+    OrdersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
