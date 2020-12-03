@@ -6,6 +6,7 @@ import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.
 import { MenuComponent } from './pages/menus/menu/menu.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { RestaurantslistComponent } from './pages/restaurant/restaurantslist/restaurantslist.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
       { path: '', component: DashboardComponent },
       { path: 'orders', component: OrdersComponent },
       { path: 'menus', component: MenuComponent },
-      {path: 'menus/add-edit/:id', component: AddEditMenuComponent}
+      { path: 'menus/add-edit/:id', component: AddEditMenuComponent },
+      { path: 'restaurants', component: RestaurantslistComponent }
     ]
   },
   {
