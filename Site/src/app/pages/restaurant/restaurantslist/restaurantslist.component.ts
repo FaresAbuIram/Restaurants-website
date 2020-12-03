@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-restaurantslist',
@@ -7,18 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantslistComponent implements OnInit {
 
-  ctr = 1;
-
   restaurants = [
     {"name": 'Peaceful Quizine', "city": 'Palestine', "rating": 4, "image": ""},
     {"name": 'Peaceful Quizine', "city": 'Tokyo', "rating": 2, "image": ""},
     {"name": 'Peaceful Quizine', "city": 'NewYork', "rating": 5, "image": ""},
     {"name": 'Peaceful Quizine', "city": 'Amman', "rating": 3, "image": ""}
-  ]
+  ];
 
+  ratingForm = new FormGroup({
+    value: new FormControl('')
+  });
+  
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    console.log(this.ratingForm.value);
+  }
 }

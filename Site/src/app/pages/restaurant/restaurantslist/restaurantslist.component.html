@@ -1,0 +1,129 @@
+<div class="container-div">
+    <div class="contain">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Restaurants List</strong>
+            </div>
+
+            <div class="card-body" style="text-align: start;">
+
+                <div class="top-card">
+                    <a routerLink="/menus/add-edit/0" routerLinkActive="active" style="left: 0;" type="button"
+                        data-id='' class="btn mb-1 py-1 px-2 btn-success browse-button mr-1" aria-pressed="true">
+                        <span>Add New Restaurant</span>
+                        <i style="padding-left: 5px;" class="fas fa-plus-circle"></i>
+                    </a>
+                    <input style="width: 350px; " class="form-control" id="search" name="search" type="text"
+                        placeholder="Restaurant name..." value="">
+                </div>
+                <br>
+                <table class="table table-striped" class="table table-striped" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let r of restaurants">
+                            <td>{{r.image}}</td>
+                            <td>{{r.name}}</td>
+                            <td>{{r.city}}</td>
+                            <td>{{r.rating}}/5</td>
+                            <td>
+                                <div class="actions">
+                                    <a class="btn mb-1 py-1 px-2 mr-2 btn-info browse-button mr-1" aria-pressed="true"
+                                        routerLink="/restaurant/add-edit/1" routerLinkActive="active">
+                                        <span>Edit</span>
+                                        <i style="padding-left: 5px;" class="fas fa-edit"></i>
+                                    </a>
+
+                                    <button type="button" data-id=''
+                                        class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1" aria-pressed="true"
+                                        data-toggle="modal" data-target="#confirmDelete">
+                                        <span>Delete</span>
+                                        <i style="padding-left: 5px;" class="fas fa-trash"></i>
+                                    </button>
+                                    <button type="button" data-id=''
+                                        class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1" aria-pressed="true"
+                                        data-toggle="modal" data-target="#rateModal">
+                                        <span>Rating</span>
+                                        <i style="padding-left: 5px;" class="fas fa-star-half-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete operation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to delete ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="rateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+
+        <!--
+    <form [formGroup]="ratingForm" (ngSubmit)="onSubmit()">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Rate the Menu</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Choose Rate</label>
+            <select class="form-control" formControlName="value">
+              <option selected value="6">None</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+      </div>
+
+    </form> -->
+
+    </div>
+
+</div>

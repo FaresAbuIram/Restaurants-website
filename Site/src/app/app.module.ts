@@ -8,8 +8,9 @@ import { BasiccontentComponent } from './pages/basiccontent/basiccontent.compone
 import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './pages/orders/orders.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RestaurantslistComponent } from './pages/restaurantslist/restaurantslist.component';
+import { MenuComponent } from './pages/menus/menu/menu.component';
+import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
+import { AddEditRestaurantComponent } from './pages/restaurant/add-edit-restaurant/add-edit-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,14 @@ import { RestaurantslistComponent } from './pages/restaurantslist/restaurantslis
     BasiccontentComponent,
     RegisterComponent,
     OrdersComponent,
-    LoginComponent,
-    RestaurantslistComponent
+    MenuComponent,
+    AddEditMenuComponent,
+    AddEditRestaurantComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
