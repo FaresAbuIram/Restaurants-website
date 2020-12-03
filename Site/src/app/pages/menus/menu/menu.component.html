@@ -4,72 +4,78 @@
 
   </div>
   <div class="down">
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <strong class="card-title">Menus List </strong>
-        </div>
-        <div class="card-body" style="text-align: start;">
-          <div class="top-card">
-            <a routerLink="/menus/add-edit/0" routerLinkActive="active"  style="left: 0;" type="button" data-id='' class="btn mb-1 py-1 px-2 btn-success browse-button mr-1"
-              aria-pressed="true" >
-              <span>Add New Menu</span>
-              <i style="padding-left: 5px;" class="fas fa-plus-circle"></i>
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">Menus List </strong>
+      </div>
+      <div class="card-body" style="text-align: start;">
+        <div class="top-card">
+          <a routerLink="/menus/add-edit/0" routerLinkActive="active" style="left: 0;" type="button" data-id=''
+            class="btn mb-1 py-1 px-2 btn-success browse-button mr-1" aria-pressed="true">
+            <span>Add New Menu</span>
+            <i style="padding-left: 5px;" class="fas fa-plus-circle"></i>
           </a>
-            <input style="width: 350px; " class="form-control" id="search" name="search" type="text" placeholder="Menu name..." value="">
-          </div>
-
-          <table class="table table-striped" style="text-align: center;">
-            <thead>
-              <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Rating</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
-                    style="width: 50px; height: 40px;" alt=""></td>
-
-                <td>Mark</td>
-                <td>
-                  <div style="max-width: 400px;">
-                    Ottoasascasfaasdakjshfaksjbfkajsbflaksjfnakjsbfjsakbfaksjbfaksjbfkjasbfkjasbsfdasdgsdfasfasdfdsasfsdafsadgasdfadsfsadfsadfsdafdsasc
-                  </div>
-                </td>
-                <td>50</td>
-                <td>4/5</td>
-                <td>
-                  <div class="actions">
-                    <a class="btn mb-1 py-1 px-2 mr-2 btn-info browse-button mr-1" aria-pressed="true" routerLink="/menus/add-edit/1" routerLinkActive="active">
-                      <span>Edit</span>
-                      <i style="padding-left: 5px;" class="fas fa-edit"></i>
-                    </a>
-
-                    <button type="button" data-id='' class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1"
-                      aria-pressed="true" data-toggle="modal" data-target="#confirmDelete">
-                      <span>Delete</span>
-                      <i style="padding-left: 5px;" class="fas fa-trash"></i>
-                    </button>
-                    <button type="button" data-id='' class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1"
-                      aria-pressed="true" data-toggle="modal" data-target="#rateModal">
-                      <span>Rating</span>
-                      <i style="padding-left: 5px;" class="fas fa-star-half-alt"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-
-
-            </tbody>
-          </table>
+          <input style="width: 350px; " class="form-control" id="search" name="search" type="text"
+            placeholder="Menu name..." value="">
         </div>
+
+        <table class="table table-striped" style="text-align: center;">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"
+                  style="width: 50px; height: 40px;" alt=""></td>
+
+              <td>Mark</td>
+              <td>
+                <div style="max-width: 400px;">
+                  Ottoasascasfaasdakjshfaksjbfkajsbflaksjfnakjsbfjsakbfaksjbfaksjbfkjasbfkjasbsfdasdgsdfasfasdfdsasfsdafsadgasdfadsfsadfsadfsdafdsasc
+                </div>
+              </td>
+              <td>50</td>
+              <td>4/5</td>
+              <td>
+                <div class="actions">
+                  <a class="btn mb-1 py-1 px-2 mr-2 btn-info browse-button mr-1" aria-pressed="true"
+                    routerLink="/menus/add-edit/1" routerLinkActive="active">
+                    <span>Edit</span>
+                    <i style="padding-left: 5px;" class="fas fa-edit"></i>
+                  </a>
+                  <a class="btn mb-1 py-1 px-2 mr-2 btn-success browse-button mr-1" aria-pressed="true"
+                    data-toggle="modal" data-target="#order">
+                    <span>Add to Your Orders</span>
+                    <i style="padding-left: 5px;" class="fas fa-sleigh"></i>
+                  </a>
+
+                  <button type="button" data-id='' class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1"
+                    aria-pressed="true" data-toggle="modal" data-target="#confirmDelete">
+                    <span>Delete</span>
+                    <i style="padding-left: 5px;" class="fas fa-trash"></i>
+                  </button>
+                  <button type="button" data-id='' class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1"
+                    aria-pressed="true" data-toggle="modal" data-target="#rateModal">
+                    <span>Rating</span>
+                    <i style="padding-left: 5px;" class="fas fa-star-half-alt"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+
+          </tbody>
+        </table>
       </div>
     </div>
+
 
   </div>
 
@@ -123,8 +129,6 @@
 
             </select>
           </div>
-
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -132,5 +136,38 @@
         </div>
       </div>
     </form>
+  </div>
+</div>
+
+
+<div class="modal fade" id="order" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="orderForm" (ngSubmit)="onSubmitOrder()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="" class=" form-control-label">Quantity</label>
+            <input type="text" formControlName="quantity" id="" name="quantity" placeholder="Enter quantity.."
+              class="form-control">
+            <span class="error"
+              *ngIf="orderForm.get('quantity').errors && orderForm.get('quantity').errors.required && orderForm.get('quantity').touched">
+              This field is required </span>
+            <span class="error"
+              *ngIf="orderForm.get('quantity').errors && !orderForm.get('quantity').errors.required && orderForm.get('quantity').touched">
+              Must Be A Number </span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" [disabled]="orderForm.invalid" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
