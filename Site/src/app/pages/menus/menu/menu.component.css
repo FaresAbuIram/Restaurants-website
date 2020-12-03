@@ -1,0 +1,30 @@
+.contain{
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
+.down{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.actions{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+
+}
+.top-card{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    justify-content: space-around;
+}

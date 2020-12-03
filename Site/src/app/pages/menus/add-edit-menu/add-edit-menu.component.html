@@ -1,0 +1,72 @@
+<div class="content">
+  <div class="card">
+    <div class="card-header">
+      <strong *ngIf="id ==0 ">Add New Menu</strong>
+      <strong *ngIf="id !=0 ">Edit Menu</strong>
+    </div>
+    <form [formGroup]="addEditMenuForm" (ngSubmit)="onSubmit()">
+      <div class="card-body card-block">
+        <div class="form-group">
+          <label for="" class=" form-control-label">Menu Name </label>
+          <input type="text" formControlName="name" id="" name="name" placeholder="Enter Name.." class="form-control">
+          <span class="error"
+            *ngIf="addEditMenuForm.get('name').errors && addEditMenuForm.get('name').errors.required && addEditMenuForm.get('name').touched">
+            This field is required </span>
+        </div>
+        <div class="form-group">
+          <label for="" class=" form-control-label">Menu Restaurant </label>
+          <select class="form-control" formControlName="restaurant">
+            <option selected value="6">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <span class="error"
+            *ngIf="addEditMenuForm.get('restaurant').errors && addEditMenuForm.get('restaurant').errors.required && addEditMenuForm.get('restaurant').touched">
+            This field is required </span>
+        </div>
+
+        <div class="form-group">
+          <label for="" class=" form-control-label">Menu Description </label>
+          <input type="text" formControlName="description" id="" name="description" placeholder="Enter Description.."
+            class="form-control">
+          <span class="error"
+            *ngIf="addEditMenuForm.get('description').errors && addEditMenuForm.get('description').errors.required && addEditMenuForm.get('description').touched">
+            This field is required </span>
+        </div>
+
+        <div class="form-group">
+          <label for="" class=" form-control-label">Menu Price </label>
+          <input type="text" formControlName="price" id="" name="price" placeholder="Enter Price.."
+            class="form-control">
+          <span class="error"
+            *ngIf="addEditMenuForm.get('price').errors && addEditMenuForm.get('price').errors.required && addEditMenuForm.get('price').touched">
+            This field is required </span>
+          <span class="error"
+            *ngIf="addEditMenuForm.get('price').errors && !addEditMenuForm.get('price').errors.required && addEditMenuForm.get('price').touched">
+            Must Be A Number </span>
+        </div>
+
+        <div class="form-group">
+          <label for="" class=" form-control-label">Menu Image </label>
+          <input type="file" formControlName="image" id="" name="image" accept="image/png,image/jpg,image/jpeg"
+            style="border: none!important" class="form-control">
+          <span class="error"
+            *ngIf="addEditMenuForm.get('image').errors && addEditMenuForm.get('image').errors.required && addEditMenuForm.get('image').touched">
+            This field is required </span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button *ngIf="id==0" type="submit" [disabled]="addEditMenuForm.invalid" class="btn btn-primary btn-sm">
+          <i class="fa fa-dot-circle-o"></i> Add 
+        </button>
+        <button *ngIf="id!=0" type="submit" [disabled]="addEditMenuForm.invalid" class="btn btn-primary btn-sm">
+            <i class="fa fa-dot-circle-o"></i> Edit 
+          </button>
+      </div>
+    </form>
+  </div>
+
+</div>
