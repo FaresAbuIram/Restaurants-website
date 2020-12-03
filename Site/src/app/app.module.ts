@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { MenuComponent } from './pages/menus/menu/menu.component';
 import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

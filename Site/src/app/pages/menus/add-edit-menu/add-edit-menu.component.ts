@@ -14,7 +14,7 @@ export class AddEditMenuComponent implements OnInit {
     name: new FormControl('', Validators.required),
     restaurant: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
-    price: new FormControl('', [Validators.required, Validators.pattern('^([0-9]).{1,}$')]),
+    price: new FormControl('', [Validators.required, Validators.pattern('^([0-9]).{0,}$')]),
     image: new FormControl('', Validators.required)
   })
 
