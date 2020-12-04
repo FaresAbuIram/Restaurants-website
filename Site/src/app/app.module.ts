@@ -6,19 +6,20 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BasiccontentComponent } from './pages/basiccontent/basiccontent.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrdersComponent } from './pages/orders/orders.component';
-<<<<<<< HEAD
-import { MenuComponent } from './pages/menus/menu/menu.component';
-import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
-import { AddEditRestaurantComponent } from './pages/restaurant/add-edit-restaurant/add-edit-restaurant.component';
-=======
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menus/menu/menu.component';
 import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from "@angular/common";
+import { RestaurantComponent } from './pages/restaurants/restaurant/restaurant.component';
+import { AddEditComponent } from './pages/restaurants/add-edit/add-edit.component';
+import { SearchByNamePipe } from './pipe';
 
->>>>>>> 222b26d09004d077b28df41bffe8707d6719e92b
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,24 +28,23 @@ import { HttpClientModule } from '@angular/common/http';
     BasiccontentComponent,
     RegisterComponent,
     OrdersComponent,
-<<<<<<< HEAD
     MenuComponent,
     AddEditMenuComponent,
-    AddEditRestaurantComponent
-=======
     LoginComponent,
     MenuComponent,
-    AddEditMenuComponent
->>>>>>> 222b26d09004d077b28df41bffe8707d6719e92b
+    AddEditMenuComponent,
+    RestaurantComponent,
+    AddEditComponent,
+    SearchByNamePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-<<<<<<< HEAD
-=======
-    HttpClientModule
->>>>>>> 222b26d09004d077b28df41bffe8707d6719e92b
+    HttpClientModule,
+    CommonModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

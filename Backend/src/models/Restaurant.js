@@ -12,24 +12,25 @@ const RestaurantSchema = new Schema({
         required: true,
         trim: true
     },
+    street: {
+        type: String,
+        required: true,
+        trim: true
+    },
     lat: {
         type: Number,
-        required: true,
         trim: true
     },
     lng: {
         type: Number,
-        required: true,
         trim: true
     },
     phone: {
         type: Number,
-        required: true,
         trim: true
     },
     image: {
         type: String,
-        required: true,
         trim: true
     },
     

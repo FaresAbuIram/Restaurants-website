@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-basiccontent',
@@ -8,11 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BasiccontentComponent implements OnInit {
 
-  constructor(private http:HttpClient ) {
-    this.http.get('http://localhost:3000').subscribe(e=>{
-      console.log(e)
-    });
-   }
+  
+  constructor(private http: HttpClient) {
+   
+  }
 
   ngOnInit(): void {
   }
