@@ -5,15 +5,18 @@ const {
 } = require("path");
 const Restaurant = require('../models/Restaurant');
 
-router.get('/restaurants', async (req, res) => {
-  await Restaurant.find({}).then(data => {
+router.get('/restaurants/:id', async (req, res) => {
+  let id = req.params.id;
+  await Restaurant.find({
+    userId: id
+  }).then(data => {
     return res.json(JSON.stringify(data));
   })
 })
 
 
-router.post('/restaurant/add', async (req, res) => {
-  console.log(req.body);
+router.post('/restaurant/add/:id', async (req, res) => {
+  let id = req.params.id;
   let newRes = new Restaurant({
     name: req.body.name,
     city: req.body.city,
@@ -21,7 +24,8 @@ router.post('/restaurant/add', async (req, res) => {
     lat: req.body.lat,
     lng: req.body.lng,
     phone: req.body.phone,
-    image: req.body.image
+    image: req.body.image,
+    userId: id
   }).save().then(data => {
     return res.json(JSON.stringify(data));
   })
@@ -66,10 +70,12 @@ router.get('/restaurant/:id', async (req, res) => {
 router.delete('/restaurant/:id', async (req, res) => {
   try {
     const id = req.params.id;
-   await Restaurant.findOneAndDelete({_id:id}).then(e=>{
-     console.log(e);
-     return res.json(e)
-   })
+    await Restaurant.findOneAndDelete({
+      _id: id
+    }).then(e => {
+      console.log(e);
+      return res.json(e)
+    })
 
 
   } catch (error) {

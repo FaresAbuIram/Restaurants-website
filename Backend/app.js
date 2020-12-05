@@ -1,12 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const RestaurantRout = require('./src/routes/restaurant')
+const RestaurantRout = require('./src/routes/restaurant');
+const RegisterRout = require('./src/routes/register');
+const LoginRout = require('./src/routes/login');
+
+
+
 
 require('dotenv').config({
     path: '.env'
@@ -28,6 +34,7 @@ mongoose.connect(uri, {
 const app = express();
 app.use(morgan('dev'));
 app.use(cors());
+app.use(cookieParser());
 
 
 app.use(session({
@@ -46,5 +53,12 @@ app.use(cookieParser());
 
 
 app.use('/', RestaurantRout);
+app.use('/register',RegisterRout);
+app.use('/login',LoginRout);
+
+
+
+
+
 
 module.exports = app;

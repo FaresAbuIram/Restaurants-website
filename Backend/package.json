@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -17,9 +18,13 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
     "http": "0.0.1-security",
+    "i": "^0.3.6",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.1",
     "morgan": "^1.10.0",
+    "node-localstorage": "^2.1.6",
     "nodemon": "^2.0.6",
+    "npm": "^6.14.9",
     "path": "^0.12.7"
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/data.service';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-basiccontent',
@@ -9,12 +11,20 @@ import { DataService } from 'src/app/data.service';
 })
 export class BasiccontentComponent implements OnInit {
 
-  
-  constructor(private http: HttpClient) {
-   
+
+  constructor(private http: HttpClient, private router: Router) {
+
   }
 
   ngOnInit(): void {
+  }
+  logOut() {
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('role');
+    this.router.navigate(['/login']);
+
   }
 
 }

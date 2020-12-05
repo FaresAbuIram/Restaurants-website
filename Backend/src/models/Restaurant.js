@@ -33,7 +33,10 @@ const RestaurantSchema = new Schema({
         type: String,
         trim: true
     },
-    
+    userId: {
+        type: String,
+    }
+
 });
 
 

@@ -61,15 +61,15 @@ export class AddEditComponent implements OnInit {
   }
   onSubmit() {
     if (this.id == 0) {
-      this.http.post(`${environment.uri}/restaurant/add`, this.addEditRestaurantForm.value).subscribe((e) => {
+      this.http.post(`${environment.uri}/restaurant/add/${localStorage.getItem('userId')}`, this.addEditRestaurantForm.value).subscribe((e) => {
         console.log(e)
-        this.route.navigate(['/restaurants']);
+        this.route.navigate(['/']);
       });
     }
     else {
       this.http.post(`${environment.uri}/restaurant/edit/${this.id}`, this.addEditRestaurantForm.value).subscribe((e) => {
         console.log(e)
-        this.route.navigate(['/restaurants']);
+        this.route.navigate(['/']);
       });
     }
 

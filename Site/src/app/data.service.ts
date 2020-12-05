@@ -13,7 +13,14 @@ export class DataService {
 
 
 getRestaurants(): Observable<any>{
-  return this.http.get(`${environment.uri}/restaurants`)
+  return this.http.get(`${environment.uri}/restaurants/${localStorage.getItem('userId')}`)
+}
+
+loggedIn(){
+  return !!localStorage.getItem('token');
+}
+role(){
+  return localStorage.getItem('role');
 }
 
 

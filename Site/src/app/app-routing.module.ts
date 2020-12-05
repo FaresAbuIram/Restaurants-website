@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { BasiccontentComponent } from './pages/basiccontent/basiccontent.component';
+import { CustomerComponent } from './pages/customer/customer.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
@@ -13,13 +15,22 @@ import { RestaurantComponent } from './pages/restaurants/restaurant/restaurant.c
 
 const routes: Routes = [
   {
-    path: '', component: BasiccontentComponent, children: [
-      { path: '', component: DashboardComponent },
+    path: '', component: BasiccontentComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: RestaurantComponent },
       { path: 'orders', component: OrdersComponent },
       { path: 'menus', component: MenuComponent },
       { path: 'menus/add-edit/:id', component: AddEditMenuComponent },
-      { path: 'restaurants', component: RestaurantComponent },
-      { path: 'restaurants/add-edit/:id', component: AddEditComponent }
+      { path: 'restaurants/add-edit/:id', component: AddEditComponent },
+      {
+        path: 'customers', component: CustomerComponent,
+        canActivate:[AuthGuard],
+         data: {
+          role: true
+        },
+        
+      }
     ]
   },
   {

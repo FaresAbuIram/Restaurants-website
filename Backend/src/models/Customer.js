@@ -27,8 +27,13 @@ const CustomerSchema = new Schema({
         required: true,
         trim: true
     },
-
-
+    token:{
+        type:String
+    },
+    isAdmin : {
+        type: Boolean
+    }
+    
 });
 
 

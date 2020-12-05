@@ -16,6 +16,8 @@ import { CommonModule } from "@angular/common";
 import { RestaurantComponent } from './pages/restaurants/restaurant/restaurant.component';
 import { AddEditComponent } from './pages/restaurants/add-edit/add-edit.component';
 import { SearchByNamePipe } from './pipe';
+import { AuthGuard } from './auth.guard';
+import { CustomerComponent } from './pages/customer/customer.component';
 
 
 
@@ -35,7 +37,9 @@ import { SearchByNamePipe } from './pipe';
     AddEditMenuComponent,
     RestaurantComponent,
     AddEditComponent,
-    SearchByNamePipe
+    SearchByNamePipe,
+    CustomerComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,7 @@ import { SearchByNamePipe } from './pipe';
     FormsModule
     
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
