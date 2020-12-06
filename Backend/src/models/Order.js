@@ -17,18 +17,15 @@ const OrderSchema = new Schema({
         required: true,
         trim: true
     },
-
     quantity: {
         type: Number,
         required: true,
         trim: true
     },
     date: {
-        type: Date(),
-        default: new Date(),
+        type: Date,
+        default: new Date,
     }
-
-
 });
 
 

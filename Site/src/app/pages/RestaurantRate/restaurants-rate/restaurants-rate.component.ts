@@ -43,6 +43,7 @@ export class RestaurantsRateComponent implements OnInit {
     this.deleteId = id;
 
   }
+
   onChange(e) {
     this.deArray = [];
     this.arr.forEach(e => {
@@ -50,7 +51,6 @@ export class RestaurantsRateComponent implements OnInit {
         this.deArray.push(e);
     })
   }
-
 
   filter(name) {
     return this.deArray.filter(res =>

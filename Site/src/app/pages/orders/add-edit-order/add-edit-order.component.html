@@ -1,1 +1,53 @@
-<p>order add edit</p>
+<div class="content">
+    <div class="card">
+        <div class="card-header">
+            <strong *ngIf="id ==0 ">Add New Order</strong>
+            <strong *ngIf="id !=0 ">Edit Order</strong>
+        </div>
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+            <div class="card-body card-block">
+                <div class="form-group">
+                    <label for="" class=" form-control-label">Restaurant </label>
+                    <select class="form-control" formControlName="rest_id" #mySelect
+                    (change)='onOptionsSelected(mySelect.value)'>
+                        <option *ngFor="let item of restaurants" value="{{item._id}}">{{item.name}}</option>
+                    </select>
+                    <span class="error"
+                        *ngIf="orderForm.get('rest_id').errors && orderForm.get('rest_id').errors.required && orderForm.get('rest_id').touched">
+                        This field is required </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class=" form-control-label">Menu </label>
+                    <select class="form-control" formControlName="menu_id">
+                        <option *ngFor="let item of array" value="{{item._id}}">{{item.name}}</option>
+                    </select>
+                    <span class="error"
+                        *ngIf="orderForm.get('menu_id').errors && orderForm.get('menu_id').errors.required && orderForm.get('menu_id').touched">
+                        This field is required </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="" class=" form-control-label">Quantity </label>
+                    <input type="text" formControlName="quantity" id="" name="quantity"
+                        class="form-control" value="{{quantity}}">
+                    <span class="error"
+                        *ngIf="orderForm.get('quantity').errors && orderForm.get('quantity').errors.required && orderForm.get('quantity').touched">
+                        This field is required </span>
+                    <span class="error"
+                        *ngIf="orderForm.get('quantity').errors && !orderForm.get('quantity').errors.required && orderForm.get('quantity').touched">
+                        Must Be A Number </span>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button *ngIf="id==0" type="submit" [disabled]="orderForm.invalid" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Add
+                </button>
+                <button *ngIf="id!=0" type="submit" [disabled]="orderForm.invalid" class="btn btn-primary btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Edit
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -15,7 +15,7 @@
               <i style="padding-left: 5px;" class="fas fa-plus-circle"></i>
             </a>
             <input style="width: 350px; " class="form-control" [(ngModel)]="searchText" id="search" name="search" type="text"
-              placeholder="Order name..." >
+              placeholder="Order name..." (keyup)="onChange($event)">
           </div>
   
           <table class="table table-striped" style="text-align: center;">
@@ -23,45 +23,39 @@
               <tr>
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
-                <th scope="col">Rate</th>
+                <th scope="col">Quantity</th>
                 <th scope="col">Date</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of  (array | searchByName: searchText)">
+              <tr *ngFor="let item of deArray">
                 <td><img src="{{item.image}}"
                     style="width: 50px; height: 40px;" alt=""></td>
   
                 <td>{{item.name}}</td>
                 <td>
                   <div >
-                    {{item.rate}}/5
+                    {{item.quantity}}
                   </div>
                 </td>
-                <td> {{item.date}}</td>
+                <td> {{item.date | date:'short'}}</td>
                 <td>
                   <div class="actions">
                     <a class="btn mb-1 py-1 px-2 mr-2 btn-info browse-button mr-1" aria-pressed="true"
-                      routerLink="/orders/add-edit/{{item._id}}" routerLinkActive="active">
+                      routerLink="/orders/add-edit/{{item.id}}" routerLinkActive="active">
                       <span>Edit</span>
                       <i style="padding-left: 5px;" class="fas fa-edit"></i>
                     </a>
   
-                    <button type="button" (click)="saveIdToDelete(item._id)" class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1"
+                    <button type="button" (click)="saveIdToDelete(item.id)" class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1"
                       aria-pressed="true" data-toggle="modal" data-target="#confirmDelete">
                       <span>Delete</span>
                       <i style="padding-left: 5px;" class="fas fa-trash"></i>
                     </button>
-                    <button type="button"  class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1"
-                      aria-pressed="true">
-                      <span>Browse</span>
-                      <i style="padding-left: 5px;" class="fas fa-eye"></i>
-                    </button>
                   </div>
                 </td>
               </tr>
-  
   
             </tbody>
           </table>
