@@ -10,7 +10,9 @@ const session = require('express-session');
 const RestaurantRout = require('./src/routes/restaurant');
 const RegisterRout = require('./src/routes/register');
 const LoginRout = require('./src/routes/login');
-const LoginRR = require('./src/routes/restaurantrate');
+const RRRout = require('./src/routes/restaurantrate');
+const MenusRout = require('./src/routes/menus');
+
 
 
 
@@ -57,10 +59,8 @@ app.use(cookieParser());
 app.use('/', RestaurantRout);
 app.use('/register',RegisterRout);
 app.use('/login',LoginRout);
-app.use('/',LoginRR);
-
-
-
+app.use('/',RRRout);
+app.use('/',MenusRout);
 
 
 

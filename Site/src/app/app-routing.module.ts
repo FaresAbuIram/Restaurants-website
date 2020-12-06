@@ -21,8 +21,8 @@ const routes: Routes = [
     children: [
       { path: '', component: RestaurantComponent },
       { path: 'orders', component: OrderComponent },
-      { path: 'menus', component: MenuComponent },
-      { path: 'menus/add-edit/:id', component: AddEditMenuComponent },
+      { path: 'menus/:id', component: MenuComponent },
+      { path: 'menus/add-edit/:id/:resId', component: AddEditMenuComponent },
       { path: 'restaurants/add-edit/:id', component: AddEditComponent },
       { path: 'orders/add-edit/:id', component: AddEditOrderComponent },
       { path: 'restaurantrate', component: RestaurantsRateComponent },

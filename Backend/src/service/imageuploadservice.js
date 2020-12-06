@@ -20,6 +20,7 @@ const storage = multer.diskStorage({
 
 const uploadLocalStorage = multer({ storage }).fields([
 	{ name: `restaurant` },
+	{ name: `menu` },
 ]);
 
 // Cloudinary configuration

@@ -8,29 +8,16 @@
       <div class="card-body card-block">
         <div class="form-group">
           <label for="" class=" form-control-label">Menu Name </label>
-          <input type="text" formControlName="name" id="" name="name" placeholder="Enter Name.." class="form-control">
+          <input type="text" formControlName="name" id="" name="name" value="{{menu.name}}" class="form-control">
           <span class="error"
             *ngIf="addEditMenuForm.get('name').errors && addEditMenuForm.get('name').errors.required && addEditMenuForm.get('name').touched">
             This field is required </span>
         </div>
-        <div class="form-group">
-          <label for="" class=" form-control-label">Menu Restaurant </label>
-          <select class="form-control" formControlName="restaurant">
-            <option selected value="6">None</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-          <span class="error"
-            *ngIf="addEditMenuForm.get('restaurant').errors && addEditMenuForm.get('restaurant').errors.required && addEditMenuForm.get('restaurant').touched">
-            This field is required </span>
-        </div>
+      
 
         <div class="form-group">
           <label for="" class=" form-control-label">Menu Description </label>
-          <input type="text" formControlName="description" id="" name="description" placeholder="Enter Description.."
+          <input type="text" formControlName="description" id="" name="description" value="{{menu.description}}"
             class="form-control">
           <span class="error"
             *ngIf="addEditMenuForm.get('description').errors && addEditMenuForm.get('description').errors.required && addEditMenuForm.get('description').touched">
@@ -39,7 +26,7 @@
 
         <div class="form-group">
           <label for="" class=" form-control-label">Menu Price </label>
-          <input type="text" formControlName="price" id="" name="price" placeholder="Enter Price.."
+          <input type="text" formControlName="price" id="" name="price" value="{{menu.price}}"
             class="form-control">
           <span class="error"
             *ngIf="addEditMenuForm.get('price').errors && addEditMenuForm.get('price').errors.required && addEditMenuForm.get('price').touched">
@@ -51,7 +38,7 @@
 
         <div class="form-group">
           <label for="" class=" form-control-label">Menu Image </label>
-          <input type="file" formControlName="image" id="" name="image" accept="image/png,image/jpg,image/jpeg"
+          <input type="file" (change)="onSelectedImage($event);" formControlName="image" id="" name="image" accept="image/png,image/jpg,image/jpeg"
             style="border: none!important" class="form-control">
           <span class="error"
             *ngIf="addEditMenuForm.get('image').errors && addEditMenuForm.get('image').errors.required && addEditMenuForm.get('image').touched">
