@@ -5,17 +5,17 @@
   <div class="down">
     <div class="card">
       <div class="card-header">
-        <strong class="card-title">Restaurants List</strong>
+        <strong class="card-title">Restaurant Rate List</strong>
       </div>
       <div class="card-body" style="text-align: start;">
         <div class="top-card">
-          <a routerLink="/restaurants/add-edit/0" routerLinkActive="active" style="left: 0;" type="button" data-id=''
+          <a routerLink="/restaurantrate/add-edit/0" routerLinkActive="active" style="left: 0;" type="button" data-id=''
             class="btn mb-1 py-1 px-2 btn-success browse-button mr-1" aria-pressed="true">
-            <span>Add New Restaurant</span>
+            <span>Add New Restaurant Rate </span>
             <i style="padding-left: 5px;" class="fas fa-plus-circle"></i>
           </a>
-          <input style="width: 350px; " class="form-control" [(ngModel)]="searchText" id="search" name="search" type="text"
-            placeholder="Restaurant name..." >
+          <input style="width: 350px; " class="form-control" (keyup)="onChange($event)" [(ngModel)]="searchText" id="search" name="search"
+            type="text" placeholder="Restaurant name...">
         </div>
 
         <table class="table table-striped" style="text-align: center;">
@@ -23,42 +23,35 @@
             <tr>
               <th scope="col">Image</th>
               <th scope="col">Name</th>
-              <th scope="col">City</th>
-              <th scope="col">Street</th>
-              <th scope="col">Phone</th>
+              <th scope="col">Rate</th>
+              <th scope="col">Date</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of  (array | searchByName: searchText)">
-              <td><img src="{{item.image}}"
-                  style="width: 50px; height: 40px;" alt=""></td>
+            <tr *ngFor="let item of  deArray">
+              <td><img src="{{item.image}}" style="width: 50px; height: 40px;" alt=""></td>
 
               <td>{{item.name}}</td>
               <td>
-                <div >
-                  {{item.city}}
+                <div>
+                  {{item.rate}}/5
                 </div>
               </td>
-              <td> {{item.street}}</td>
-              <td> {{item.phone}}</td>
+              <td> {{item.date  | date:'shortDate'}}</td>
               <td>
                 <div class="actions">
                   <a class="btn mb-1 py-1 px-2 mr-2 btn-info browse-button mr-1" aria-pressed="true"
-                    routerLink="/restaurants/add-edit/{{item._id}}" routerLinkActive="active">
+                    routerLink="/restaurantrate/add-edit/{{item.id}}" routerLinkActive="active">
                     <span>Edit</span>
                     <i style="padding-left: 5px;" class="fas fa-edit"></i>
                   </a>
 
-                  <button type="button" (click)="saveIdToDelete(item._id)" class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1"
-                    aria-pressed="true" data-toggle="modal" data-target="#confirmDelete">
+                  <button type="button" (click)="saveIdToDelete(item.id)"
+                    class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1" aria-pressed="true" data-toggle="modal"
+                    data-target="#confirmDelete">
                     <span>Delete</span>
                     <i style="padding-left: 5px;" class="fas fa-trash"></i>
-                  </button>
-                  <button type="button"  class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1"
-                    aria-pressed="true">
-                    <span>Browse</span>
-                    <i style="padding-left: 5px;" class="fas fa-eye"></i>
                   </button>
                 </div>
               </td>

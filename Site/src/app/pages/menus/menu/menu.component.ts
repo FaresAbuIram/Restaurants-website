@@ -10,11 +10,14 @@ export class MenuComponent implements OnInit {
    rateForm = new FormGroup({
      value:new FormControl('')
    });
+  
 
    orderForm = new FormGroup({
      quantity: new FormControl('',[Validators.required, Validators.pattern('^([0-9]).{0,}$')])
    })
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit(): void {
   }

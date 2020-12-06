@@ -10,10 +10,9 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./basiccontent.component.css']
 })
 export class BasiccontentComponent implements OnInit {
-
-
+ 
   constructor(private http: HttpClient, private router: Router) {
-
+    
   }
 
   ngOnInit(): void {
@@ -22,7 +21,6 @@ export class BasiccontentComponent implements OnInit {
 
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
-    localStorage.removeItem('role');
     this.router.navigate(['/login']);
 
   }

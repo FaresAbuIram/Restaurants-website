@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AddEditComponent implements OnInit {
   id: any;
+  selectedImage: any;
   restaurant = {
     name: '',
     city: '',
@@ -34,13 +35,13 @@ export class AddEditComponent implements OnInit {
           this.restaurant.lng = e['lng'];
           this.restaurant.phone = e['phone'];
           this.restaurant.image = e['image'];
-          this.addEditRestaurantForm.patchValue({name:this.restaurant.name});
-          this.addEditRestaurantForm.patchValue({city:this.restaurant.city});
-          this.addEditRestaurantForm.patchValue({street:this.restaurant.street});
-          this.addEditRestaurantForm.patchValue({lat:this.restaurant.lat});
-          this.addEditRestaurantForm.patchValue({lng:this.restaurant.lng});
-          this.addEditRestaurantForm.patchValue({phone:this.restaurant.phone});
-          this.addEditRestaurantForm.patchValue({image:this.restaurant.image});
+          this.addEditRestaurantForm.patchValue({ name: this.restaurant.name });
+          this.addEditRestaurantForm.patchValue({ city: this.restaurant.city });
+          this.addEditRestaurantForm.patchValue({ street: this.restaurant.street });
+          this.addEditRestaurantForm.patchValue({ lat: this.restaurant.lat });
+          this.addEditRestaurantForm.patchValue({ lng: this.restaurant.lng });
+          this.addEditRestaurantForm.patchValue({ phone: this.restaurant.phone });
+          this.addEditRestaurantForm.patchValue({ image: this.restaurant.image });
         })
       }
     });
@@ -54,25 +55,40 @@ export class AddEditComponent implements OnInit {
     lat: new FormControl('', Validators.pattern('^([0-9]).{0,}$')),
     lng: new FormControl('', Validators.pattern('^([0-9]).{0,}$')),
     phone: new FormControl('', Validators.pattern('^([0-9]).{0,}$')),
-    image: new FormControl('')
+    image: new FormControl('', Validators.required)
   });
 
   ngOnInit(): void {
   }
   onSubmit() {
+
+    const formData = new FormData();
+    formData.append('restaurant', this.selectedImage);
+    formData.append('name', this.addEditRestaurantForm.value.name);
+    formData.append('city', this.addEditRestaurantForm.value.city);
+    formData.append('street', this.addEditRestaurantForm.value.street);
+    formData.append('lat', this.addEditRestaurantForm.value.lat);
+    formData.append('lng', this.addEditRestaurantForm.value.lng);
+    formData.append('phone', this.addEditRestaurantForm.value.phone);
+
     if (this.id == 0) {
-      this.http.post(`${environment.uri}/restaurant/add/${localStorage.getItem('userId')}`, this.addEditRestaurantForm.value).subscribe((e) => {
+      this.http.post(`${environment.uri}/restaurant/add/${localStorage.getItem('userId')}`, formData).subscribe((e) => {
         console.log(e)
         this.route.navigate(['/']);
       });
     }
     else {
-      this.http.post(`${environment.uri}/restaurant/edit/${this.id}`, this.addEditRestaurantForm.value).subscribe((e) => {
+      this.http.post(`${environment.uri}/restaurant/edit/${this.id}`, formData).subscribe((e) => {
         console.log(e)
         this.route.navigate(['/']);
       });
     }
 
   }
- 
+
+  onSelectedImage(event) {
+    this.selectedImage = event.target.files[0];
+    console.log(this.selectedImage)
+  }
+
 }

@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { BasiccontentComponent } from './pages/basiccontent/basiccontent.component';
-import { CustomerComponent } from './pages/customer/customer.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
 import { MenuComponent } from './pages/menus/menu/menu.component';
-import { OrdersComponent } from './pages/orders/orders.component';
+import { AddEditOrderComponent } from './pages/orders/add-edit-order/add-edit-order.component';
+import { OrderComponent } from './pages/orders/order/order.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaurants-rate-add-edit/restaurants-rate-add-edit.component';
+import { RestaurantsRateComponent } from './pages/RestaurantRate/restaurants-rate/restaurants-rate.component';
 import { AddEditComponent } from './pages/restaurants/add-edit/add-edit.component';
 import { RestaurantComponent } from './pages/restaurants/restaurant/restaurant.component';
 
@@ -19,18 +20,15 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: RestaurantComponent },
-      { path: 'orders', component: OrdersComponent },
+      { path: 'orders', component: OrderComponent },
       { path: 'menus', component: MenuComponent },
       { path: 'menus/add-edit/:id', component: AddEditMenuComponent },
       { path: 'restaurants/add-edit/:id', component: AddEditComponent },
-      {
-        path: 'customers', component: CustomerComponent,
-        canActivate:[AuthGuard],
-         data: {
-          role: true
-        },
-        
-      }
+      { path: 'orders/add-edit/:id', component: AddEditOrderComponent },
+      { path: 'restaurantrate', component: RestaurantsRateComponent },
+      { path: 'restaurantrate/add-edit/:id', component: RestaurantsRateAddEditComponent },
+      
+      
     ]
   },
   {

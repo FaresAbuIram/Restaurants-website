@@ -12,15 +12,14 @@ const RestaurantRatingSchema = new Schema({
         required: true,
         trim: true
     },
-
     rating: {
         type: Number,
         required: true,
         trim: true
     },
     date: {
-        type: Date(),
-        default: new Date(),
+        type: Date,
+        default: Date.now,
     }
 
 

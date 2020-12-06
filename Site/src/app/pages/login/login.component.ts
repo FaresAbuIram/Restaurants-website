@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
         this.loginError = "Success";
         localStorage.setItem('token',e['token']);
         localStorage.setItem('userId',e['_id']);
-        localStorage.setItem('role',e['isAdmin']);
         this.router.navigate(['/']);
       }
     })

@@ -11,17 +11,10 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   constructor(private router: Router, private service: DataService) {
 
   }
-  canActivate(route: ActivatedRouteSnapshot): boolean {
-    if (this.service.loggedIn()) {
-      const userRole = this.service.role();
-      console.log(userRole)
-      console.log(route.data.role)
-      if (route.data.role && userRole == 'false') {
-        this.router.navigate(['/']);
-        return false;
-      }
+  canActivate(): boolean {
+    if (this.service.loggedIn())
       return true;
-    }
+
     this.router.navigate(['/login']);
     return false
   }

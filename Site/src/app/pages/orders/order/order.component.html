@@ -1,0 +1,98 @@
+<div class="contain">
+    <div class="Upper">
+  
+    </div>
+    <div class="down">
+      <div class="card">
+        <div class="card-header">
+          <strong class="card-title">Orders List</strong>
+        </div>
+        <div class="card-body" style="text-align: start;">
+          <div class="top-card">
+            <a routerLink="/orders/add-edit/0" routerLinkActive="active" style="left: 0;" type="button" data-id=''
+              class="btn mb-1 py-1 px-2 btn-success browse-button mr-1" aria-pressed="true">
+              <span>Add New Order</span>
+              <i style="padding-left: 5px;" class="fas fa-plus-circle"></i>
+            </a>
+            <input style="width: 350px; " class="form-control" [(ngModel)]="searchText" id="search" name="search" type="text"
+              placeholder="Order name..." >
+          </div>
+  
+          <table class="table table-striped" style="text-align: center;">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Date</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of  (array | searchByName: searchText)">
+                <td><img src="{{item.image}}"
+                    style="width: 50px; height: 40px;" alt=""></td>
+  
+                <td>{{item.name}}</td>
+                <td>
+                  <div >
+                    {{item.rate}}/5
+                  </div>
+                </td>
+                <td> {{item.date}}</td>
+                <td>
+                  <div class="actions">
+                    <a class="btn mb-1 py-1 px-2 mr-2 btn-info browse-button mr-1" aria-pressed="true"
+                      routerLink="/orders/add-edit/{{item._id}}" routerLinkActive="active">
+                      <span>Edit</span>
+                      <i style="padding-left: 5px;" class="fas fa-edit"></i>
+                    </a>
+  
+                    <button type="button" (click)="saveIdToDelete(item._id)" class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1"
+                      aria-pressed="true" data-toggle="modal" data-target="#confirmDelete">
+                      <span>Delete</span>
+                      <i style="padding-left: 5px;" class="fas fa-trash"></i>
+                    </button>
+                    <button type="button"  class="btn mb-1 py-1 px-2 btn-warning browse-button mr-1"
+                      aria-pressed="true">
+                      <span>Browse</span>
+                      <i style="padding-left: 5px;" class="fas fa-eye"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+  
+  
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+  
+  </div>
+  
+  
+  <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete operation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure want to delete ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" (click)="deleteOne();" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

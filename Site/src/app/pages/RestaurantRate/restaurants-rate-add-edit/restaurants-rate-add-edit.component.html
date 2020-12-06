@@ -1,0 +1,52 @@
+<div class="content">
+    <div class="card">
+      <div class="card-header">
+        <strong *ngIf="id ==0 ">Add New Restaurant Rate </strong>
+        <strong *ngIf="id !=0 ">Edit Restaurant Rate </strong>
+      </div>
+  
+      <form [formGroup]="RRForm" (ngSubmit)="onSubmit()">
+  
+        <div class="card-body card-block">
+  
+          <div class="form-group" *ngIf="id ==0">
+            <label for="" class=" form-control-label"> Restaurant Name </label>
+            <select class="form-control" formControlName="restId">
+              <option *ngFor="let item of array" value="{{item._id}}">{{item.name}}</option>
+            </select>
+            <span class="error"
+            *ngIf="RRForm.get('restId').errors && RRForm.get('restId').errors.required && (RRForm.get('restId').dirty||RRForm.get('restId').touched) ">
+            This field is required </span>
+  
+          </div>
+  
+          <div class="form-group">
+            <label for="" class=" form-control-label"> Rate </label>
+            <select class="form-control" formControlName="rate">
+              <option *ngFor="let number of [1,2,3,4,5]" value="{{number}}">{{number}}</option>
+            </select>
+            <span class="error"
+            *ngIf="RRForm.get('rate').errors && RRForm.get('rate').errors.required && (RRForm.get('rate').dirty||RRForm.get('rate').touched) ">
+            This field is required </span>
+  
+          </div>
+  
+          <div class="error">{{RRMessage}}</div>
+        </div>
+  
+        <div class="card-footer">
+  
+          <button *ngIf="id==0" type="submit" [disabled]="RRForm.invalid" class="btn btn-primary btn-sm">
+            <i class="fa fa-dot-circle-o"></i> Add
+          </button>
+          <button *ngIf="id!=0" type="submit" [disabled]="RRForm.get('rate').errors" class="btn btn-primary btn-sm">
+            <i class="fa fa-dot-circle-o"></i> Edit
+          </button>
+        
+  
+        </div>
+      </form>
+    </div>
+  
+  </div>
+  

@@ -63,8 +63,11 @@
 
                 <div class="form-group">
                     <label for="" class=" form-control-label"> Image </label>
-                    <input type="file" formControlName="image" id="" name="image"
+                    <input type="file" (change)="onSelectedImage($event);" formControlName="image" id="" name="image"
                         accept="image/png,image/jpg,image/jpeg" style="border: none!important" class="form-control">
+                        <span class="error"
+                        *ngIf="addEditRestaurantForm.get('image').errors && addEditRestaurantForm.get('image').errors.required && addEditRestaurantForm.get('image').touched">
+                        This field is required </span>
                 </div>
 
             </div>

@@ -3,11 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BasiccontentComponent } from './pages/basiccontent/basiccontent.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OrdersComponent } from './pages/orders/orders.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './pages/menus/menu/menu.component';
 import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
@@ -17,7 +15,10 @@ import { RestaurantComponent } from './pages/restaurants/restaurant/restaurant.c
 import { AddEditComponent } from './pages/restaurants/add-edit/add-edit.component';
 import { SearchByNamePipe } from './pipe';
 import { AuthGuard } from './auth.guard';
-import { CustomerComponent } from './pages/customer/customer.component';
+import { OrderComponent } from './pages/orders/order/order.component';
+import { AddEditOrderComponent } from './pages/orders/add-edit-order/add-edit-order.component';
+import { RestaurantsRateComponent } from './pages/RestaurantRate/restaurants-rate/restaurants-rate.component';
+import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaurants-rate-add-edit/restaurants-rate-add-edit.component';
 
 
 
@@ -26,10 +27,9 @@ import { CustomerComponent } from './pages/customer/customer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     BasiccontentComponent,
     RegisterComponent,
-    OrdersComponent,
+    OrderComponent,
     MenuComponent,
     AddEditMenuComponent,
     LoginComponent,
@@ -38,7 +38,9 @@ import { CustomerComponent } from './pages/customer/customer.component';
     RestaurantComponent,
     AddEditComponent,
     SearchByNamePipe,
-    CustomerComponent,
+    AddEditOrderComponent,
+    RestaurantsRateComponent,
+    RestaurantsRateAddEditComponent,
     
   ],
   imports: [
