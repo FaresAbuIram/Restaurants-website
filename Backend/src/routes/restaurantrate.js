@@ -6,7 +6,7 @@ router.get('/restaurantrate/:id', async (req, res) => {
     let id = req.params.id;
     console.log(id)
     await RestaurantRate.find({
-        
+        customer_id:id
     }).then(data => {
         console.log(data)
         return res.json(data);
