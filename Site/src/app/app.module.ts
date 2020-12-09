@@ -19,10 +19,8 @@ import { OrderComponent } from './pages/orders/order/order.component';
 import { AddEditOrderComponent } from './pages/orders/add-edit-order/add-edit-order.component';
 import { RestaurantsRateComponent } from './pages/RestaurantRate/restaurants-rate/restaurants-rate.component';
 import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaurants-rate-add-edit/restaurants-rate-add-edit.component';
-
-
-
-
+import { EditProfileComponent } from './pages/profiles/edit-profile/edit-profile.component';
+import { ProfileComponent } from './pages/profiles/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +39,10 @@ import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaura
     AddEditOrderComponent,
     RestaurantsRateComponent,
     RestaurantsRateAddEditComponent,
-    
+    EditProfileComponent,
+    ProfileComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -50,7 +50,7 @@ import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaura
     HttpClientModule,
     CommonModule,
     FormsModule
-    
+
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
