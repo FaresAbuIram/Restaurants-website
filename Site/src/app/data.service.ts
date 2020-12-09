@@ -7,21 +7,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class DataService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http : HttpClient) { }
+  getRestaurants(): Observable<any> {
+    return this.http.get(`${environment.uri}/restaurants/${localStorage.getItem('userId')}`);
+  }
 
+  getUserInfo(): Observable<any> {
+    return this.http.get(`${environment.uri}/profile/${localStorage.getItem('userId')}`);
+  }
 
+  loggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
 
-getRestaurants(): Observable<any>{
-  return this.http.get(`${environment.uri}/restaurants/${localStorage.getItem('userId')}`)
-}
-
-loggedIn(){
-  return !!localStorage.getItem('token');
-}
-role(){
-  return localStorage.getItem('role');
-}
-
-
+  role(): String {
+    return localStorage.getItem('role');
+  }
 }

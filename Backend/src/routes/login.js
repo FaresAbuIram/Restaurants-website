@@ -20,12 +20,12 @@ router.post('/', async (req, res) => {
                     return res.json("Invalid Email Or Password");
 
                 };
-            const token = jwt.sign({
-                        userId: user._id
-                    },
+                const token = jwt.sign({
+                    userId: user._id
+                },
                     "sssssssssssss"
                 );
-                
+
                 // update user adding token
                 const updatedUser = await User.updateOne({
                     _id: user._id

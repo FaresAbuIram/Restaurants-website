@@ -19,8 +19,7 @@ export class RegisterComponent implements OnInit {
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]),
     phone: new FormControl('', [Validators.required, Validators.pattern('^([0-9]).{9}$')]),
-
-  })
+  });
 
   constructor(private http: HttpClient, private router :Router) { }
 
