@@ -16,8 +16,30 @@
           </a>
           <input style="width: 350px; " class="form-control" [(ngModel)]="searchText" id="search" name="search"
             type="text" placeholder="Restaurant name...">
+          <button type="button" (click)="clickOnFilter();" class="btn btn-info mr-3 mb-xs-3"
+            data-toggle="collapse" data-target="#filterCollapse" aria-expanded="true" aria-controls="filterCollapse">
+            <span>Advanced Filter</span>
+            <i class="fas fa-filter"></i>
+          </button>
         </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="collapse" id="filterCollapse">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Restaurant City</label>
+                    <select  #mySelect name="status" id="status" class="form-control"   (change)='onOptionsSelected(mySelect.value)'>
+                      <option value="" selected>Choose Restaurant City</option>
+                      <option *ngFor="let item of cities">{{item}}</option>
+                    </select>
+                  </div>
+                </div>
 
+              </div>
+            </div>
+          </div>
+        </div>
         <table class="table table-striped" style="text-align: center;">
           <thead>
             <tr>
@@ -30,7 +52,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of  (array | searchByName: searchText)">
+            <tr *ngFor="let item of  (filterdArray | searchByName: searchText)">
               <td><img src="{{item.image}}" style="width: 50px; height: 40px;" alt=""></td>
 
               <td>{{item.name}}</td>

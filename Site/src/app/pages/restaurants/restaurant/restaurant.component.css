@@ -32,3 +32,6 @@
 width: 1200px;
 min-width: 750px;
 }
+.row{
+    justify-content: flex-end;
+}

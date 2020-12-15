@@ -20,9 +20,17 @@ router.post('/', async (req, res) => {
                     return res.json("Invalid Email Or Password");
 
                 };
+<<<<<<< HEAD
                 const token = jwt.sign({
                     userId: user._id
                 },
+=======
+            const token = jwt.sign({
+                        userId: user._id,
+                        
+                        exp: Math.floor(Date.now() / 1000) +(60*15),
+                    },
+>>>>>>> 1416adc994ecd35d0afa2950709c33f318e31e84
                     "sssssssssssss"
                 );
 
@@ -38,6 +46,8 @@ router.post('/', async (req, res) => {
                 const user2 = await User.findOne({
                     email: req.body.email
                 });
+                 
+                res.cookie('auth_token', token);
                 res.json(user2)
             });
 

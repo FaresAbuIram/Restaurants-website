@@ -33,8 +33,8 @@ export class RegisterComponent implements OnInit {
       this.registrationError = "Register Success";
         this.router.navigate(['/login']);
       }
-        
-    })
+    });
+    
     console.log(this.registerForm.value);
   }
 }

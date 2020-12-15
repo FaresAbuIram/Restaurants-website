@@ -2,8 +2,3 @@
     display: flex;
     justify-content: center;
 }
-
-.center-2 {
-    display: inline;
-    -moz-box-align: center;
-}

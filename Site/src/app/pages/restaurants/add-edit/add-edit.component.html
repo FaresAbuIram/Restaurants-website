@@ -65,20 +65,17 @@
                     <label for="" class=" form-control-label"> Image </label>
                     <input type="file" (change)="onSelectedImage($event);" formControlName="image" id="" name="image"
                         accept="image/png,image/jpg,image/jpeg" style="border: none!important" class="form-control">
-                        <span class="error"
-                        *ngIf="addEditRestaurantForm.get('image').errors && addEditRestaurantForm.get('image').errors.required && addEditRestaurantForm.get('image').touched">
-                        This field is required </span>
                 </div>
 
             </div>
 
             <div class="card-footer">
 
-                <button *ngIf="id==0" type="submit" [disabled]="addEditRestaurantForm.invalid"
+                <button *ngIf="id==0" type="submit" (click)="onSubmit() ;clicked=true"  [disabled]="addEditRestaurantForm.invalid || clicked"
                     class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Add
                 </button>
-                <button *ngIf="id!=0" type="submit" [disabled]="addEditRestaurantForm.invalid"
+                <button *ngIf="id!=0" (click)="onSubmit() ;clicked=true"  [disabled]="addEditRestaurantForm.invalid || clicked"
                     class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Edit
                 </button>
@@ -87,4 +84,6 @@
         </form>
     </div>
 
+</div>
+<div *ngIf="clicked==true" id="spinner" >
 </div>

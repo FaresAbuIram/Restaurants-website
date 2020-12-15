@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/data.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-
 @Component({
   selector: 'app-basiccontent',
   templateUrl: './basiccontent.component.html',
@@ -19,6 +18,7 @@ export class BasiccontentComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
   logOut() {
     localStorage.removeItem('token');

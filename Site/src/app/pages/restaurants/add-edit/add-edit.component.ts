@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Restaurant } from 'src/app/classes/Restaurant';
@@ -11,8 +11,10 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./add-edit.component.css']
 })
 export class AddEditComponent implements OnInit {
+ 
   id: any;
   selectedImage: any;
+  clicked=false;
   restaurant = {
     name: '',
     city: '',
@@ -47,6 +49,7 @@ export class AddEditComponent implements OnInit {
     });
 
   }
+  
 
   addEditRestaurantForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -55,7 +58,7 @@ export class AddEditComponent implements OnInit {
     lat: new FormControl('', Validators.pattern('^([0-9]).{0,}$')),
     lng: new FormControl('', Validators.pattern('^([0-9]).{0,}$')),
     phone: new FormControl('', Validators.pattern('^([0-9]).{0,}$')),
-    image: new FormControl('', Validators.required)
+    image: new FormControl('')
   });
 
   ngOnInit(): void {
@@ -73,6 +76,8 @@ export class AddEditComponent implements OnInit {
 
     if (this.id == 0) {
       this.http.post(`${environment.uri}/restaurant/add/${localStorage.getItem('userId')}`, formData).subscribe((e) => {
+       
+  
         console.log(e)
         this.route.navigate(['/']);
       });
@@ -80,6 +85,7 @@ export class AddEditComponent implements OnInit {
     else {
       this.http.post(`${environment.uri}/restaurant/edit/${this.id}`, formData).subscribe((e) => {
         console.log(e)
+        
         this.route.navigate(['/']);
       });
     }
@@ -90,5 +96,6 @@ export class AddEditComponent implements OnInit {
     this.selectedImage = event.target.files[0];
     console.log(this.selectedImage)
   }
+  
 
 }

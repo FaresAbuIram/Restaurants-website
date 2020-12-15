@@ -40,14 +40,16 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button *ngIf="id==0" type="submit" [disabled]="orderForm.invalid" class="btn btn-primary btn-sm">
+                <button *ngIf="id==0" type="submit" (click)="onSubmit() ;clicked=true" [disabled]="orderForm.invalid || clicked" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Add
                 </button>
-                <button *ngIf="id!=0" type="submit" [disabled]="orderForm.invalid" class="btn btn-primary btn-sm">
+                <button *ngIf="id!=0" type="submit" (click)="onSubmit() ;clicked=true" [disabled]="orderForm.invalid || clicked" class="btn btn-primary btn-sm">
                     <i class="fa fa-dot-circle-o"></i> Edit
                 </button>
             </div>
         </form>
     </div>
 
+</div>
+<div *ngIf="clicked==true" id="spinner" >
 </div>
