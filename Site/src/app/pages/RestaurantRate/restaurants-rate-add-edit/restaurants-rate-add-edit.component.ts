@@ -15,7 +15,7 @@ export class RestaurantsRateAddEditComponent implements OnInit {
   id: any;
   array: any
   RRMessage = '';
-
+  clicked=false;
   RRForm = new FormGroup({
     restId: new FormControl('', Validators.required),
     rate: new FormControl('', Validators.required)

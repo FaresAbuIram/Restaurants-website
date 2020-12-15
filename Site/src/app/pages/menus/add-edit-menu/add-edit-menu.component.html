@@ -40,20 +40,19 @@
           <label for="" class=" form-control-label">Menu Image </label>
           <input type="file" (change)="onSelectedImage($event);" formControlName="image" id="" name="image" accept="image/png,image/jpg,image/jpeg"
             style="border: none!important" class="form-control">
-          <span class="error"
-            *ngIf="addEditMenuForm.get('image').errors && addEditMenuForm.get('image').errors.required && addEditMenuForm.get('image').touched">
-            This field is required </span>
         </div>
       </div>
       <div class="card-footer">
-        <button *ngIf="id==0" type="submit" [disabled]="addEditMenuForm.invalid" class="btn btn-primary btn-sm">
+        <button *ngIf="id==0" type="submit" (click)="onSubmit() ;clicked=true"  [disabled]="addEditMenuForm.invalid || clicked" class="btn btn-primary btn-sm">
           <i class="fa fa-dot-circle-o"></i> Add 
         </button>
-        <button *ngIf="id!=0" type="submit" [disabled]="addEditMenuForm.invalid" class="btn btn-primary btn-sm">
+        <button *ngIf="id!=0" type="submit" (click)="onSubmit() ;clicked=true"  [disabled]="addEditMenuForm.invalid || clicked" class="btn btn-primary btn-sm">
             <i class="fa fa-dot-circle-o"></i> Edit 
           </button>
       </div>
     </form>
   </div>
 
+</div>
+<div *ngIf="clicked==true" id="spinner" >
 </div>

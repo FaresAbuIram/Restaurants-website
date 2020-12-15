@@ -16,7 +16,8 @@ export class AddEditOrderComponent implements OnInit {
   array: any;
   restaurants: any;
   quantity: any;
-
+  clicked=false;
+  
   orderForm = new FormGroup({
     rest_id: new FormControl('', Validators.required),
     menu_id: new FormControl('', Validators.required),

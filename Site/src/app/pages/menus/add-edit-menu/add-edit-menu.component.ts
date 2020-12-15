@@ -15,6 +15,7 @@ export class AddEditMenuComponent implements OnInit {
   id: any;
   resId:any;
   selectedImage: any;
+  clicked=false;
 
   menu = {
     name:'',
@@ -27,7 +28,7 @@ export class AddEditMenuComponent implements OnInit {
     name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
     price: new FormControl('', [Validators.required, Validators.pattern('^([0-9]).{0,}$')]),
-    image: new FormControl('', Validators.required)
+    image: new FormControl('')
   })
 
 

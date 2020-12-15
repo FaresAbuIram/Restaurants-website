@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { BasiccontentComponent } from './pages/basiccontent/basiccontent.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MapComponent } from './pages/map/map.component';
 import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.component';
 import { MenuComponent } from './pages/menus/menu/menu.component';
 import { AddEditOrderComponent } from './pages/orders/add-edit-order/add-edit-order.component';
@@ -27,8 +28,9 @@ const routes: Routes = [
       { path: 'orders/add-edit/:id', component: AddEditOrderComponent },
       { path: 'restaurantrate', component: RestaurantsRateComponent },
       { path: 'restaurantrate/add-edit/:id', component: RestaurantsRateAddEditComponent },
-      
-      
+      { path: 'map', component: MapComponent }
+
+
     ]
   },
   {

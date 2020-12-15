@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,8 +19,10 @@ import { OrderComponent } from './pages/orders/order/order.component';
 import { AddEditOrderComponent } from './pages/orders/add-edit-order/add-edit-order.component';
 import { RestaurantsRateComponent } from './pages/RestaurantRate/restaurants-rate/restaurants-rate.component';
 import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaurants-rate-add-edit/restaurants-rate-add-edit.component';
-
-
+import { AgmCoreModule } from '@agm/core';
+import { MapComponent } from './pages/map/map.component';
+import { JwtModule } from "@auth0/angular-jwt";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 
 
@@ -41,7 +43,9 @@ import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaura
     AddEditOrderComponent,
     RestaurantsRateComponent,
     RestaurantsRateAddEditComponent,
-    
+    MapComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -49,10 +53,20 @@ import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaura
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
-    
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAAQslllGejH8HEJRZiEdX_4XQpAmDdHIQ',
+    }),
+    JwtModule.forRoot({
+      config: {
+        allowedDomains: ["example.com"],
+        disallowedRoutes: ["http://example.com/examplebadroute/"],
+      },
+    }),
+    MatProgressSpinnerModule
+
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

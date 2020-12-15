@@ -21,7 +21,9 @@ router.post('/', async (req, res) => {
 
                 };
             const token = jwt.sign({
-                        userId: user._id
+                        userId: user._id,
+                        
+                        exp: Math.floor(Date.now() / 1000) +(60*15),
                     },
                     "sssssssssssss"
                 );
@@ -38,6 +40,8 @@ router.post('/', async (req, res) => {
                 const user2 = await User.findOne({
                     email: req.body.email
                 });
+                 
+                res.cookie('auth_token', token);
                 res.json(user2)
             });
 

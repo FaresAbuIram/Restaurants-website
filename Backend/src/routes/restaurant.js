@@ -6,6 +6,11 @@ const {
   join
 } = require("path");
 const Restaurant = require('../models/Restaurant');
+const Order = require('../models/Order');
+const Menu = require('../models/Menu')
+const RestaurantRate = require('../models/RestaurantRating');
+
+
 
 router.get('/restaurants/:id', async (req, res) => {
   let id = req.params.id;
@@ -21,13 +26,16 @@ router.post('/restaurant/add/:id', async (req, res) => {
   imageuploadservice.uploadLocalStorage(req, res, async (err) => {
 
     let id = req.params.id;
-    const imagePath = req.files.restaurant[0].path;
+    let resImage = 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX33541598.jpg'
+    if (req.files.restaurant) {
+      const imagePath = req.files.restaurant[0].path;
 
-    const image = await imageuploadservice.uploadCloudinary(
-      imagePath,
-      'restaurant'
-    );
-
+      const image = await imageuploadservice.uploadCloudinary(
+        imagePath,
+        'restaurant'
+      );
+      resImage = image.url
+    }
     let newRes = new Restaurant({
       name: req.body.name,
       city: req.body.city,
@@ -36,7 +44,7 @@ router.post('/restaurant/add/:id', async (req, res) => {
       lng: req.body.lng,
       phone: req.body.phone,
       userId: id,
-      image: image.url
+      image: resImage
     }).save().then(data => {
       return res.json(JSON.stringify(data));
     })
@@ -47,11 +55,13 @@ router.post('/restaurant/edit/:id', async (req, res) => {
   imageuploadservice.uploadLocalStorage(req, res, async (err) => {
 
     const id = req.params.id;
-    let rest = Restaurant.findOne({
+    let rest = await Restaurant.findOne({
       _id: id
     });
     let imageR = rest.image;
+    console.log(rest)
     if (req.files.restaurant) {
+      console.log(imageR)
       const imagePath = req.files.restaurant[0].path;
       const image = await imageuploadservice.uploadCloudinary(
         imagePath,
@@ -66,7 +76,7 @@ router.post('/restaurant/edit/:id', async (req, res) => {
       image: imageR
 
     }
-    if (req.body.lat != 'null' && req.body.lat != 'undefined' )
+    if (req.body.lat != 'null' && req.body.lat != 'undefined')
       obj.lat = req.body.lat;
 
     if (req.body.lng != 'null' && req.body.lng != 'undefined')
@@ -106,7 +116,17 @@ router.delete('/restaurant/:id', async (req, res) => {
     const id = req.params.id;
     await Restaurant.findOneAndDelete({
       _id: id
-    }).then(e => {
+    }).then(async(e) => {
+      await Menu.findOneAndDelete({
+        rest_id: id
+      });
+      await Order.findOneAndDelete({
+        rest_id: id
+      });
+      await RestaurantRate.findOneAndDelete({
+        rest_id: id
+      });
+
       console.log(e);
       return res.json(e)
     })

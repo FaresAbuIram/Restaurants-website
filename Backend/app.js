@@ -38,16 +38,14 @@ mongoose.connect(uri, {
 const app = express();
 app.use(morgan('dev'));
 app.use(cors());
-app.use(cookieParser());
-
 
 app.use(session({
-    secret: 'sssssssssh!!!',
-    cookie: {
-        maxAge: 60000
-    },
-    resave: false,
-    saveUninitialized: false
+	secret: 'sssssssssh!!!',
+	cookie: {
+		maxAge: 60000
+	},
+	resave: false,
+	saveUninitialized: false
 }));
 app.use(bodyParser.urlencoded({
     extended: true
@@ -55,10 +53,9 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json()); // API Request
 app.use(cookieParser());
 
-
-app.use('/', RestaurantRout);
 app.use('/register', RegisterRout);
 app.use('/login', LoginRout);
+app.use('/', RestaurantRout);
 app.use('/', RRRout);
 app.use('/', MenusRout);
 app.use('/', OrderRout);
