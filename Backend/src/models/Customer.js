@@ -33,9 +33,6 @@ const CustomerSchema = new Schema({
     isAdmin : {
         type: Boolean
     }
-    
 });
-
-
 
 module.exports = mongoose.model('Customer', CustomerSchema);
