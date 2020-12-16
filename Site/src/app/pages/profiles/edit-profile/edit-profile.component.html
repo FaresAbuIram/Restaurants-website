@@ -1,1 +1,69 @@
-<p>edit-profile works!</p>
+<form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" value="{{user.firstName}}">
+        <div class="error"
+            *ngIf="editProfileForm.get('firstName').errors && editProfileForm.get('firstName').errors.required && editProfileForm.get('firstName').touched">
+            This field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" value="{{user.lastName}}">
+        <div class="error"
+            *ngIf="editProfileForm.get('lastName').errors && editProfileForm.get('lastName').errors.required && editProfileForm.get('lastName').touched">
+            This field is required</div>
+    </div>
+
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control" formControlName="email" value="{{user.email}}">
+        <div class="error"
+            *ngIf="editProfileForm.get('email').errors && editProfileForm.get('email').errors.required && editProfileForm.get('email').touched">
+            This field is required</div>
+        <div class="error"
+            *ngIf="editProfileForm.get('email').errors && !editProfileForm.get('email').errors.required&& editProfileForm.get('email').touched">
+            Enter a Valid Email</div>
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password" value="{{user.password}}">
+        <div class="error"
+            *ngIf="editProfileForm.get('password').errors && editProfileForm.get('password').errors.required && editProfileForm.get('password').touched">
+            This field is required</div>
+        <div class="error"
+            *ngIf="editProfileForm.get('password').errors && !editProfileForm.get('password').errors.required && editProfileForm.get('password').touched">
+            <div>Your Password Must Contain:
+
+                <div> 1. At least 8 characters</div>
+                <div> 2. At least one small letter</div>
+                <div> 3. At least one capital letter</div>
+                <div> 4. At least one special character</div>
+                <div> 5. At least one one digit</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" class="form-control" formControlName="phone" value="{{user.phone}}">
+        <div class="error"
+            *ngIf="editProfileForm.get('phone').errors && editProfileForm.get('phone').errors.required && editProfileForm.get('phone').touched">
+            This field is required</div>
+        <div class="error"
+            *ngIf="editProfileForm.get('phone').errors && ! editProfileForm.get('phone').errors.required && editProfileForm.get('phone').touched">
+            Your Phone Number must be only 10 Digits
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="editProfileForm.invalid" class="btn btn-primary btn-flat m-b-30 m-t-30">Edit
+        Profile Info</button>
+    <div class="error">{{editingError}}</div>
+</form>
+
+
+<div *ngIf="clicked == true" id="spinner" >
+</div>

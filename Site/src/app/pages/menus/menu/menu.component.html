@@ -19,6 +19,12 @@
             placeholder="Menu name..." value="">
         </div>
 
+        <div *ngIf="array.length == 0">
+          <hr>
+          <strong class="card-title actions">There is no Menus Currently</strong>
+        </div>
+
+       <div *ngIf="array.length != 0">
         <table class="table table-striped" style="text-align: center;">
           <thead>
             <tr >
@@ -60,6 +66,7 @@
 
           </tbody>
         </table>
+       </div>
       </div>
     </div>
 
