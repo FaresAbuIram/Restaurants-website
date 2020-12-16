@@ -3,17 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { environment } from 'src/environments/environment';
 
-
-
-
-
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
   styleUrls: ['./restaurant.component.css']
 })
 export class RestaurantComponent implements OnInit {
-
   array: any;
   deleteId: any;
   searchText = '';
@@ -38,7 +33,6 @@ export class RestaurantComponent implements OnInit {
     this.deleteId = id;
   }
 
-
   filter(name) {
     return this.array.filter(res =>
       res.name.toLowerCase().indexOf(name.toLowerCase()) !== -1);
@@ -48,8 +42,7 @@ export class RestaurantComponent implements OnInit {
     this.http.delete(`${environment.uri}/restaurant/${this.deleteId}`).subscribe(e => {
       console.log(e);
       window.location.reload();
-    })
-
+    });
   }
 
   ifInCity(name) {

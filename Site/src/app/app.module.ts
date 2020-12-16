@@ -44,9 +44,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     RestaurantsRateComponent,
     RestaurantsRateAddEditComponent,
     MapComponent,
-
-
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

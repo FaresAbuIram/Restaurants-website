@@ -8,6 +8,8 @@ import { AddEditMenuComponent } from './pages/menus/add-edit-menu/add-edit-menu.
 import { MenuComponent } from './pages/menus/menu/menu.component';
 import { AddEditOrderComponent } from './pages/orders/add-edit-order/add-edit-order.component';
 import { OrderComponent } from './pages/orders/order/order.component';
+import { EditProfileComponent } from './pages/profiles/edit-profile/edit-profile.component';
+import { ProfileComponent } from './pages/profiles/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { RestaurantsRateAddEditComponent } from './pages/RestaurantRate/restaurants-rate-add-edit/restaurants-rate-add-edit.component';
 import { RestaurantsRateComponent } from './pages/RestaurantRate/restaurants-rate/restaurants-rate.component';

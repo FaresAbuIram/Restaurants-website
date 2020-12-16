@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   constructor(private router: Router, private service: DataService, private jwtHelper: JwtHelperService) {
 
   }
+
   canActivate(): boolean {
     if (this.service.loggedIn())
     console.log(this.jwtHelper.isTokenExpired(localStorage.getItem('token')))
@@ -30,6 +31,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
+
   canDeactivate(
     component: unknown,
     currentRoute: ActivatedRouteSnapshot,
@@ -37,6 +39,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
+
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {

@@ -13,6 +13,7 @@ const LoginRout = require('./src/routes/login');
 const RRRout = require('./src/routes/restaurantrate');
 const MenusRout = require('./src/routes/menus');
 const OrderRout = require('./src/routes/order');
+const ProfileRout = require('./src/routes/customer');
 
 require('dotenv').config({
     path: '.env'
@@ -59,5 +60,6 @@ app.use('/', RestaurantRout);
 app.use('/', RRRout);
 app.use('/', MenusRout);
 app.use('/', OrderRout);
+app.use('/', ProfileRout);
 
 module.exports = app;

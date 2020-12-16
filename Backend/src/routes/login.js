@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
                     },
                     "sssssssssssss"
                 );
-                
+
                 // update user adding token
                 const updatedUser = await User.updateOne({
                     _id: user._id

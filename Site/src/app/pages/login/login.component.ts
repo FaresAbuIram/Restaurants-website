@@ -12,15 +12,12 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent implements OnInit {
   loginError: any;
 
-
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [
       Validators.required
-    ]),
-  })
-
-
+    ])
+  });
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -28,18 +25,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.http.post(`${environment.uri}/login`, this.loginForm.value).subscribe(e => {
-      console.log(e)
-      if (e == 'Invalid Email Or Password' || e == 'Error Happened')
-        this.loginError = e;
-      else {
-        this.loginError = "Success";
-        localStorage.setItem('token',e['token']);
-        localStorage.setItem('userId',e['_id']);
-        this.router.navigate(['/']);
-      }
-    })
-
+    this.http.post(`${environment.uri}/login`, this.loginForm.value)
+      .subscribe(e => {
+        console.log(e)
+        if (e == 'Invalid Email Or Password' || e == 'Error Happened')
+          this.loginError = e;
+        else {
+          this.loginError = "Success";
+          localStorage.setItem('token', e['token']);
+          localStorage.setItem('userId', e['_id']);
+          this.router.navigate(['/']);
+        }
+      });
   }
-
 }
