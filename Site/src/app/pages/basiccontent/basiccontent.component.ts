@@ -9,9 +9,9 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./basiccontent.component.css']
 })
 export class BasiccontentComponent implements OnInit {
+  
+  role=localStorage.getItem('role');
 
-  @Input()
-  user_id = localStorage.getItem('userId');
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -23,6 +23,7 @@ export class BasiccontentComponent implements OnInit {
   logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    localStorage.removeItem('role');
     this.router.navigate(['/login']);
   }
 

@@ -1,6 +1,15 @@
 const router = require("express").Router();
 const Order = require('../models/Order');
 
+router.get('/order', async (req, res) => {
+    
+    await Order.find(
+        { }
+    ).then(data => {
+        return res.json(data);
+    });
+});
+
 router.get('/order/:id', async (req, res) => {
     const id = req.params.id;
     await Order.find(

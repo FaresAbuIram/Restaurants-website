@@ -14,16 +14,23 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
 
   }
 
-  canActivate(): boolean {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
     if (this.service.loggedIn())
-    console.log(this.jwtHelper.isTokenExpired(localStorage.getItem('token')))
-      if (!this.jwtHelper.isTokenExpired(localStorage.getItem('token')))
-        return true;
+      if (!this.jwtHelper.isTokenExpired(localStorage.getItem('token'))) {
+        if (route.data.role && this.service.role() != "true") {
+          this.router.navigate(['/'])
+          return false;
+        }
+        else {
+          return true
+        }
+      }
+
 
     this.router.navigate(['/login']);
     return false
   }
-  
+
 
 
   canActivateChild(

@@ -1,0 +1,119 @@
+<div class="contain">
+  <div class="Upper">
+
+  </div>
+  <div class="down">
+    <div class="card">
+      <div class="card-header">
+        <strong class="card-title">All Customers</strong>
+      </div>
+      <div class="card-body" style="text-align: start;">
+        <div class="top-card">
+          <input style="width: 350px; " class="form-control" [(ngModel)]="searchText" id="search" name="search"
+            type="text" placeholder="Customer name..." (keyup)="onChange($event)">
+        </div>
+
+        <div *ngIf="array.length == 0">
+          <hr>
+          <strong class="card-title actions">There is no Customers Currently</strong>
+        </div>
+
+        <div *ngIf="array.length != 0">
+          <table class="table table-striped" style="text-align: center;">
+            <thead>
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of filterArray">
+
+
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>
+                  <div>
+                    {{item.email}}
+                  </div>
+                </td>
+                <td *ngIf="item.isAdmin==true"> Admin</td>
+                <td *ngIf="item.isAdmin==false"> User</td>
+                <td>
+                  <div class="actions">
+                    <a class="btn mb-1 py-1 px-2 mr-2 btn-info browse-button mr-1" aria-pressed="true"
+                      data-toggle="modal" (click)="saveIdToUpdate(item._id)" data-target="#changeRole">
+                      <span>Change Role</span>
+                      <i style="padding-left: 5px;" class="fas fa-edit"></i>
+                    </a>
+
+                    <button type="button" (click)="saveIdToDelete(item._id)"
+                      class="btn mb-1 py-1 px-2 btn-danger browse-button mr-1" aria-pressed="true" data-toggle="modal"
+                      data-target="#confirmDelete">
+                      <span>Delete</span>
+                      <i style="padding-left: 5px;" class="fas fa-trash"></i>
+                    </button>
+
+                  </div>
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete operation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure want to delete ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="deleteOne();" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="changeRole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Customer Role</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select class="form-control" #select >
+          <option selected value="1">Admin</option>
+          <option selected value="2">User</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="changeRole(select.value);" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

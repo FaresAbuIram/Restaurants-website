@@ -23,7 +23,7 @@ const CustomerSchema = new Schema({
         trim: true
     },
     phone: {
-        type: Number,
+        type: String,
         required: true,
         trim: true
     },
@@ -31,7 +31,8 @@ const CustomerSchema = new Schema({
         type:String
     },
     isAdmin : {
-        type: Boolean
+        type: Boolean,
+        default:false
     }
 });
 

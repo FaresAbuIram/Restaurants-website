@@ -23,6 +23,10 @@ import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './pages/map/map.component';
 import { JwtModule } from "@auth0/angular-jwt";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { ProfileComponent } from './pages/profiles/profile/profile.component';
+import { EditProfileComponent } from './pages/profiles/edit-profile/edit-profile.component';
+import { AllorderComponent } from './pages/allorder/allorder.component';
+import { AllcustomerComponent } from './pages/allcustomer/allcustomer.component';
 
 
 
@@ -44,6 +48,10 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     RestaurantsRateComponent,
     RestaurantsRateAddEditComponent,
     MapComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    AllorderComponent,
+    AllcustomerComponent
   ],
 
   imports: [

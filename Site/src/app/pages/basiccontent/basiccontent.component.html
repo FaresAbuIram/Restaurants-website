@@ -16,6 +16,8 @@
           <a  routerLink="/orders" routerLinkActive="active"> <i class="menu-icon fa  fa-sleigh"></i>Orders</a>
           <a  routerLink="/restaurantrate" routerLinkActive="active"> <i class="menu-icon fa  fa-star-half-alt"></i>Rating</a>
           <a  routerLink="/map" routerLinkActive="active"> <i class="menu-icon fa  fa-map-marked-alt"></i>Map</a>
+          <a *ngIf="role=='true'" routerLink="/allorder" routerLinkActive="active"> <i class="menu-icon fa fa-calendar-minus"></i>All orders</a>
+          <a *ngIf="role=='true'" routerLink="/allcustomer" routerLinkActive="active"> <i class="menu-icon fa fa-users"></i>Customers</a>
 
         </li>
 
@@ -50,7 +52,7 @@
           </a>
 
           <div class="user-menu dropdown-menu">
-              <a class="nav-link" routerLink="/profile/{{user_id}}" routerLinkActive="active"><i
+              <a class="nav-link" routerLink="/profile" routerLinkActive="active"><i
                 class="fa fa-user"></i> My Profile</a>
 
             <a class="nav-link" (click)="logOut();"><i class="fa fa-power-off"></i> Logout</a>

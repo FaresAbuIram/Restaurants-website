@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { AllcustomerComponent } from './pages/allcustomer/allcustomer.component';
+import { AllorderComponent } from './pages/allorder/allorder.component';
 import { BasiccontentComponent } from './pages/basiccontent/basiccontent.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MapComponent } from './pages/map/map.component';
@@ -30,8 +32,23 @@ const routes: Routes = [
       { path: 'orders/add-edit/:id', component: AddEditOrderComponent },
       { path: 'restaurantrate', component: RestaurantsRateComponent },
       { path: 'restaurantrate/add-edit/:id', component: RestaurantsRateAddEditComponent },
-      { path: 'map', component: MapComponent }
-
+      { path: 'map', component: MapComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'profile/edit', component: EditProfileComponent },
+      {
+        path: 'allorder', component: AllorderComponent,
+        canActivate: [AuthGuard],
+        data: {
+          role: 'ROLE_ADMIN'
+        }
+      },
+      {
+        path: 'allcustomer', component: AllcustomerComponent,
+        canActivate: [AuthGuard],
+        data: {
+          role: 'ROLE_ADMIN'
+        }
+      },
 
     ]
   },

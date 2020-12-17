@@ -26,7 +26,7 @@ const RestaurantSchema = new Schema({
         trim: true
     },
     phone: {
-        type: Number,
+        type: String,
         trim: true
     },
     image: {
