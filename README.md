@@ -12,7 +12,7 @@
 - [License](#License)
 
 ## General Information
-> The app is implemented and designed using the Angular framework and NodeJs for educational purposes. It contains two roles admin and the user. The admin can make the CRUD operation in the restaurants, menus, and orders, and the user can call an order. Used Nodejs for backend and MongoDB as a database.
+> The Website is implemented and designed using the Angular framework and NodeJs for educational purposes. It contains two roles admin and the user. The admin can make the CRUD operation in the restaurants, menus, and orders, and the user can call an order. Used Nodejs for backend and MongoDB as a database.
 
 ## Technologies
 - Angular 
