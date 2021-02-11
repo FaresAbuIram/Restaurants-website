@@ -1,5 +1,5 @@
-# Restaurantswebsite
-> This Website provides a beautiful interface for the users. It has the pages for the restaurants and the menus in each restaurant. Also, Can ask for the order from the restaurant that he wants. Finally, the user can give each restaurant and order rating.           temperature, wind's speed, feels like, max and min temperature, humidity, pressure, and extra.
+# Restaurants Website
+> This Website provides a beautiful interface for the users. It has the pages for the restaurants and the menus in each restaurant. Also, Can ask for the order from the restaurant that he wants. Finally, the user can give each restaurant and order rating.
 
 ## Tabel of contents 
 - [General Information](#General-Information)
